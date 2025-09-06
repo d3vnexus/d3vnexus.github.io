@@ -1,1068 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevNexus - Bring Your Business Into Digital World</title>
+    <title>DevNexus - Your Partner in Digital Growth</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Ubuntu:wght@300;400;500;700&family=Alice&display=swap" rel="stylesheet">
-    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <style>
-        :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #1a1a1a;
-            --accent-green: #00ff88;
-            --dark-green: #004d2b;
-            --text-light: #ffffff;
-            --text-gray: #b0b0b0;
-            --card-bg: #2a2a2a;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Applying the Poppins font family */
         body {
-            background-color: var(--primary-bg);
-            color: var(--text-light);
-            font-family: 'Ubuntu', sans-serif;
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117; /* A deep navy, almost black */
+            color: #c9d1d9; /* Light grey for text */
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Ubuntu', serif;
-        }
-        
-        /* Navbar Styles */
-        .navbar {
-            background: rgba(26, 26, 26, 0.95) !important;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand img {
-            /* height: 40px;
-            width: auto; */
-        }
-        
-        .navbar-nav .nav-link {
-            color: var(--text-light) !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link:hover {
-            color: var(--accent-green) !important;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('hero.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .hero-title {
-            font-family: 'Anta', sans-serif;
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-        }
-        
-        .btn-custom {
-            background: linear-gradient(45deg, var(--accent-green), var(--dark-green));
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-        
-        .btn-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
-        }
-        
-        /* Stats Section */
-        .stats-section {
-            background: var(--secondary-bg);
-            padding: 80px 0;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-        }
-        
-        /* Why Choose Us Section */
-        .why-choose-section {
-            font-family: 'Ubuntu', sans-serif;
-            padding: 100px 0;
-            background: var(--primary-bg);
-        }
-        
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--text-light);
-        }
-        
-        .why-choose-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-        
-        .illustration-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-        }
-        
-        /* Services Section */
-        .services-section {
-            background: var(--secondary-bg);
-            padding: 100px 0;
-        }
-        
-        .service-card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-green);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: var(--accent-green);
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-        
-        .service-description {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-        
-        /* How We Work Section */
-        .how-we-work-section {
-            padding: 100px 0;
-            background: var(--primary-bg);
-        }
-        
-        .work-step {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, var(--accent-green), var(--dark-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .step-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-        
-        .step-description {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-        
-        /* Projects Section */
-        .projects-section {
-            background: var(--secondary-bg);
-            padding: 100px 0;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            height: 300px;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 2rem;
-            color: white;
-        }
-        
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-description {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 0;
-            background: var(--primary-bg);
-        }
-        
-        .contact-form {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 15px;
-        }
-        
-        .form-control {
-            background: var(--secondary-bg);
-            border: 1px solid #444;
-            color: var(--text-light);
-            padding: 15px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-control:focus {
-            background: var(--secondary-bg);
-            border-color: var(--accent-green);
-            color: var(--text-light);
-            box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.25);
-        }
-        
-        .contact-info {
-            padding: 3rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: black;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--secondary-bg);
-            padding: 60px 0 30px;
-            border-top: 2px solid var(--accent-green);
-        }
-        
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            display: block;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-green);
-        }
-        
-        .social-icons a {
-            color: var(--text-gray);
-            font-size: 1.5rem;
-            margin-right: 15px;
-            transition: color 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            color: var(--accent-green);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #444;
-            color: var(--text-gray);
-        }
-        
-        /* Animations */
-        .slide-in-right {
-            animation: slideInRight 1s ease-out;
-        }
-                 
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .service-card, .work-step {
-                margin-bottom: 2rem;
-            }
-            
-        }
-        .company-name {
-            font-family: 'Alice', serif;
-            font-size: 20px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #4f9cf9 0%, #00d4ff 100%);
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
 
-        .tagline {
-            font-size: 12px;
-            color: #00ffff;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        /* disaper part  */
-        .hero-section-content {
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+        /* Nav link active state */
+        .nav-link-active {
+            color: #38bdf8; /* sky-400 */
         }
 
-        .hero-hidden {
+        /* Scroll reveal animation */
+        .reveal {
             opacity: 0;
-            visibility: hidden;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar (optional but adds a nice touch) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        #rotating-text {
+          display: inline-block;
+          transition: opacity 0.5s ease, transform 0.5s ease;
+          opacity: 1;
+
+          display: inline-block;
+          min-width: 150px;   /* Reserve enough space for the longest word */
+          text-align: left;    /* keep text aligned */
+          transition: opacity 0.5s ease, transform 0.5s ease;
+          opacity: 1;
+          vertical-align: bottom; /* align nicely with the main text */
+            /* optional: prevent wrapping if text is long */
+          white-space: nowrap;
+        }
+
+        #rotating-text.fade-out {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        #rotating-text.fade-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .hid{
+          display: none;
+          visibility: hidden;
+        }
     </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="logo2.png" alt="DevNexus Logo" style="width: auto; height: 60px;">
-            </a>
-            <div class="logo-text">
-                <div class="company-name">DevNexus</div>
-                <div class="tagline">Your Partner in Digital Growth</div>
+<body class="antialiased">
+
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-6 h-16 flex justify-between items-center">
+
+            <img src="logo.png" alt="DevNexus Logo" class="h-12 w-auto object-contain">
+
+            <!-- <a href="#" class="text-2xl font-bold gradient-text">DevNexus</a> -->
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="nav-link text-gray-300 hover:text-sky-400 transition-colors duration-300">Home</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-sky-400 transition-colors duration-300">About</a>
+                <a href="#services" class="nav-link text-gray-300 hover:text-sky-400 transition-colors duration-300">Services</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-sky-400 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300">Contact</a>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <i class='bx bx-menu text-3xl'></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+        </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="#home" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="#about" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">About</a>
+            <a href="#services" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Services</a>
+            <a href="#projects" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Projects</a>
+            <a href="#contact" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Contact</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 hero-section-content">
-                    <h1 class="hero-title fade-in-up">Bring your business into digital world</h1>
-                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">Transform your ideas into powerful digital solutions</p>
-                    <a href="#contact" class="btn btn-custom fade-in-up" style="animation-delay: 0.6s;">Get Started Today</a>
-                </div>
+    <main>
+        <section id="home" 
+    class="h-screen w-full flex items-center justify-center text-center relative top-0 z-0" 
+    style="background-image: url(hero.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="absolute inset-0 bg-grid-gray-700/20 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
+            <div class="container mx-auto px-6 text-center relative">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal">Bring your business into the <span class="gradient-text">digital world</span></h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 200ms;">Unlock the Digital Future of Your <span id="rotating-text" style="color: yellow;font-weight: 900;"></span></p>
+                <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block reveal" style="transition-delay: 400ms;">Get In Touch</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="stat-card" data-aos="fade-up">
-                        <div class="stat-number" data-target="20">0</div>
-                        <div class="stat-label">Projects Completed</div>
+        
+
+        <section class="py-12 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 reveal">
+                        <h3 class="text-4xl font-bold gradient-text">20+</h3>
+                        <p class="text-gray-400 mt-2">Projects Completed</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="stat-number" data-target="15">0</div>
-                        <div class="stat-label">Happy Customers</div>
+                    <div class="p-6 reveal" style="transition-delay: 200ms;">
+                        <h3 class="text-4xl font-bold gradient-text">15+</h3>
+                        <p class="text-gray-400 mt-2">Happy Customers</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="stat-number" data-target="4">0</div>
-                        <div class="stat-label">Years of Experience</div>
+                    <div class="p-6 reveal" style="transition-delay: 400ms;">
+                        <h3 class="text-4xl font-bold gradient-text">4+</h3>
+                        <p class="text-gray-400 mt-2">Years of Experience</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="about" class="why-choose-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="why-choose-content" data-aos="fade-right">
-                        <p class="why-choose-text">
-                            We are professional developers with experience making small businesses grow worldwide, 
-                            breaking barriers and expanding across the country. Our team combines cutting-edge 
-                            technology with creative solutions to deliver exceptional results that drive your business forward.
-                        </p>
-                        <p class="why-choose-text">
-                            With years of expertise in web development, digital marketing, and business solutions, 
-                            we understand what it takes to succeed in today's competitive digital landscape.
-                        </p>
+        <section id="about" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <img src="why.jpg" alt="Team collaborating" class="rounded-xl shadow-2xl shadow-sky-900/20">
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div data-aos="fade-left">
-                        <img src="why.png" 
-                             alt="Team collaboration" class="illustration-img">
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why <span class="gradient-text">Choose Us</span></h2>
+                        <p class="text-gray-400 mb-4">We are professional developers with experience making small businesses grow worldwide, breaking barriers and expanding across the country. Our team combines cutting-edge technology with creative solutions to deliver exceptional results that drive your business forward.</p>
+                        <p class="text-gray-400">With years of expertise in web development, digital marketing, and business solutions, we understand what it takes to succeed in today's competitive digital landscape.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Services</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="service-title">Static Websites</h3>
-                        <p class="service-description">Fast, beautiful websites that load quickly and convert visitors into customers.</p>
-                    </div>
+        <section id="services" class="py-20 md:py-28 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our <span class="gradient-text">Services</span></h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">We offer a wide range of services to help your business thrive in the digital age.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-icon">
-                            <i class="fas fa-cash-register"></i>
-                        </div>
-                        <h3 class="service-title">POS System</h3>
-                        <p class="service-description">Complete business POS solutions to streamline your operations and boost efficiency.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal">
+                        <div class="text-sky-400 mb-4"><i class='bx bx-code-alt text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Static Websites</h3>
+                        <p class="text-gray-400">Fast, beautiful websites that load quickly and convert visitors into customers.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                        <h3 class="service-title">Social Media Marketing</h3>
-                        <p class="service-description">Boost your online presence and engage with customers across all social platforms.</p>
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 100ms;">
+                        <div class="text-sky-400 mb-4"><i class='bx bx-store-alt text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">POS System</h3>
+                        <p class="text-gray-400">Complete business POS solutions to streamline your operations and boost efficiency.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3 class="service-title">Graphic Design</h3>
-                        <p class="service-description">Eye-catching posters, logos, and visuals that make your brand stand out.</p>
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 200ms;">
+                        <div class="text-sky-400 mb-4"><i class='bx bx-trending-up text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Social Media Marketing</h3>
+                        <p class="text-gray-400">Boost your online presence and engage with customers across all social platforms.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 class="service-title">SEO Optimization</h3>
-                        <p class="service-description">Increase your online visibility and rank higher in search engine results.</p>
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 300ms;">
+                        <div class="text-sky-400 mb-4"><i class='bx bxs-paint text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Graphic Design</h3>
+                        <p class="text-gray-400">Eye-catching posters, logos, and visuals that make your brand stand out.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <h3 class="service-title">Web Applications</h3>
-                        <p class="service-description">E-commerce, Shopify solutions, and custom web applications for your business.</p>
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 400ms;">
+                        <div class="text-sky-400 mb-4"><i class='bx bx-search-alt text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">SEO Optimization</h3>
+                        <p class="text-gray-400">Increase your online visibility and rank higher in search engine results.</p>
+                    </div>
+                    <div class="bg-gray-800/50 border border-gray-700 p-8 rounded-xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 500ms;">
+                        <div class="text-sky-400 mb-4"><i class='bx bx-globe text-4xl'></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Web Applications</h3>
+                        <p class="text-gray-400">E-commerce, Shopify solutions, and custom web applications for your business.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How We Work Section -->
-    <section class="how-we-work-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">How We Create Your Project</h2>
-            <p class="text-center  mb-5" data-aos="fade-up" data-aos-delay="100" style="color: rgb(151, 148, 148);">Simplifying Your Hiring Process</p>
-            <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <div class="work-step" data-aos="fade-up">
-                        <div class="step-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3 class="step-title">Initial Consultation</h3>
-                        <p class="step-description">
-                            We start with a comprehensive consultation to understand your business needs, 
-                            goals, and vision for your digital project.
-                        </p>
-                    </div>
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">How We <span class="gradient-text">Create Your Project</span></h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Simplifying Your Hiring Process</p>
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="work-step" data-aos="fade-up" data-aos-delay="200">
-                        <div class="step-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3 class="step-title">Tailored Solution</h3>
-                        <p class="step-description">
-                            Our experts create a customized proposal and solution that perfectly fits 
-                            your requirements and budget.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="work-step" data-aos="fade-up" data-aos-delay="400">
-                        <div class="step-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="step-title">Project Execution</h3>
-                        <p class="step-description">
-                            We execute your project with regular updates, ensuring transparency 
-                            and timely delivery of high-quality results.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Projects</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card slide-in-right" onclick="window.open('https://buddhikaashen.github.io/salon', '_blank')">
-                        <img src="p1.png" 
-                             alt="E-commerce Platform" class="project-image">
-                        <div class="project-overlay">
-                            <h4 class="project-title">Salon website</h4>
-                            <p class="project-description">A modern salon website with an elegant design, showcasing services, pricing, and booking options to give customers a smooth and professional online experience.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card slide-in-right" style="animation-delay: 0.2s;" onclick="window.open('https://buddhikaashen.github.io/Echonix', '_blank')">
-                        <img src="p2.png" 
-                             alt="Business Dashboard" class="project-image">
-                        <div class="project-overlay">
-                            <h4 class="project-title">IT Company</h4>
-                            <p class="project-description">A professional cybersecurity company website designed to highlight services, showcase expertise, and build trust with clients through a clean and modern user experience.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card slide-in-right" style="animation-delay: 0.4s;" onclick="window.open('https://buddhikaashen.github.io/Green', '_blank')">
-                        <img src="p3.png" 
-                             alt="Restaurant Website" class="project-image">
-                        <div class="project-overlay">
-                            <h4 class="project-title">Hostel Booking Platform</h4>
-                            <p class="project-description">A user-friendly website for room reservations, facilities, and guest management.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card slide-in-right" style="animation-delay: 0.2s;" onclick="window.open('https://rathna.free.nf/', '_blank')">
-                        <img src="p4.png" 
-                             alt="Business Dashboard" class="project-image">
-                        <div class="project-overlay">
-                            <h4 class="project-title">E-commerce Platform</h4>
-                            <p class="project-description">Modern online store with advanced features and seamless user experience.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form" data-aos="fade-right">
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-5 left-0 w-full h-0.5 bg-gray-700"></div>
+                    <div class="grid md:grid-cols-3 gap-12 text-center relative">
+                        <div class="reveal">
+                            <div class="relative">
+                               <div class="mx-auto w-12 h-12 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center text-sky-500 font-bold text-xl">1</div>
                             </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-custom">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info" data-aos="fade-left">
-                        <div class="contact-item">
-                            <!-- <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div> -->
-                            
-                            <div>
-                                <h5>Location</h5>
-                                <p style="color: var(--text-gray);">Devnexus, Dolahena Govijanapadaya Road, Sri Lanka</p>
-                            </div>
+                            <h3 class="text-xl font-semibold text-white mt-6 mb-2">Initial Consultation</h3>
+                            <p class="text-gray-400">We start with a comprehensive consultation to understand your business needs, goals, and vision for your digital project.</p>
                         </div>
-                        <div class="contact-item">
-                            <!-- <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div> -->
-                            <div>
-                                <h5>Email</h5>
-                                <p style="color: var(--text-gray);">devnexus.contact@gmail.com</p>
+                        <div class="reveal" style="transition-delay: 200ms;">
+                            <div class="relative">
+                                <div class="mx-auto w-12 h-12 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center text-sky-500 font-bold text-xl">2</div>
                             </div>
+                            <h3 class="text-xl font-semibold text-white mt-6 mb-2">Tailored Solution</h3>
+                            <p class="text-gray-400">Our experts create a customized proposal and solution that perfectly fits your requirements and budget.</p>
                         </div>
-                        <div class="contact-item">
-                            <!-- <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div> -->
-                            <div>
-                                <h5>Phone</h5>
-                                <p style="color: var(--text-gray);">+94 77 570 6568</p>
+                        <div class="reveal" style="transition-delay: 400ms;">
+                            <div class="relative">
+                                <div class="mx-auto w-12 h-12 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center text-sky-500 font-bold text-xl">3</div>
                             </div>
+                            <h3 class="text-xl font-semibold text-white mt-6 mb-2">Project Execution</h3>
+                            <p class="text-gray-400">We execute your project with regular updates, ensuring transparency and timely delivery of high-quality results.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Ctext x='10' y='40' font-family='Alice, serif' font-size='28' font-weight='bold' fill='%2300ff88'%3EDevNexus%3C/text%3E%3C/svg%3E" 
-                         alt="DevNexus Logo" class="footer-logo">
-                    <p style="color: #b0b0b0;">
-                        Transforming businesses through innovative digital solutions. 
-                        We bring your vision to life with cutting-edge technology.
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1A7TAcnLkv/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+        <section id="projects" class="py-20 md:py-28 bg-gray-900/50">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our <span class="gradient-text">Projects</span></h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">A glimpse into some of the successful projects we've delivered.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden group reveal">
+                        <img src="p1.png" alt="Salon Website" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Salon website</h3>
+                            <p class="text-gray-400">A modern salon website with an elegant design, showcasing services, pricing, and booking options to give customers a smooth and professional online experience.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden group reveal" style="transition-delay: 200ms;">
+                        <img src="p2.png" alt="IT Company Website" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">IT Company</h3>
+                            <p class="text-gray-400">A professional cybersecurity company website designed to highlight services, showcase expertise, and build trust with clients through a clean and modern user experience.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden group reveal">
+                        <img src="p3.png" alt="Hostel Booking Platform" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Hostel Booking Platform</h3>
+                            <p class="text-gray-400">A user-friendly website for room reservations, facilities, and guest management.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden group reveal" style="transition-delay: 200ms;">
+                        <img src="p4.png" alt="E-commerce Platform" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">E-commerce Platform</h3>
+                            <p class="text-gray-400">Modern online store with advanced features and seamless user experience.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
-                    <div class="footer-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#services">Services</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Services</h5>
-                    <div class="footer-links">
-                        <a href="#services">Web Development</a>
-                        <a href="#services">POS Systems</a>
-                        <a href="#services">Digital Marketing</a>
-                        <a href="#services">SEO Optimization</a>
-                        <a href="#services">Graphic Design</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Contact Info</h5>
-                    <div class="footer-links">
-                        <a href="mailto:info@devnexus.com">
-                            <i class="fas fa-envelope me-2"></i>devnexus.contact@gmail.com
-                        </a>
-                        <a href="tel:+94775706568">
-                            <i class="fas fa-phone me-2"></i>+94 77 570 6568
-                        </a>
-                        <a href="#">
-                            <i class="fas fa-map-marker-alt me-2"></i>Pitipana, Sri Lanka
-                        </a>
-                    </div>
+                <div class="text-center mt-12 reveal">
+                  <a href="projects/index.html" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block">See More</a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 DevNexus. All rights reserved. | Privacy Policy | Terms of Service </p>
+        </section>
+
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="text-gray-400 mt-2 max-w-2xl mx-auto mb-8">Have a project in mind? We'd love to hear about it. Let's build something amazing together.</p>
+                <a href="https://wa.me/c/94761536494" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block">Contact Us Now</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact" class="bg-gray-900 border-t border-gray-700 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold gradient-text mb-4">DevNexus</h3>
+                    <p class="text-gray-400 mb-4">Transforming businesses through innovative digital solutions. We bring your vision to life with cutting-edge technology.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-sky-400 transition-colors"><i class='bx bxl-facebook-square text-2xl'></i></a>
+                        <a href="#" class="text-gray-400 hover:text-sky-400 transition-colors"><i class='bx bxl-twitter text-2xl'></i></a>
+                        <a href="#" class="text-gray-400 hover:text-sky-400 transition-colors"><i class='bx bxl-linkedin-square text-2xl'></i></a>
+                        <a href="#" class="text-gray-400 hover:text-sky-400 transition-colors"><i class='bx bxl-github text-2xl'></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-sky-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-sky-400 transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-sky-400 transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Web Development</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">POS Systems</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Digital Marketing</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">SEO Optimization</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-sky-400 transition-colors">Graphic Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                           <i class='bx bxs-map text-sky-400 mt-1 mr-3'></i>
+                           <span>Devnexus, Dolahena Govijanapadaya Road, Pitipana, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center">
+                           <i class='bx bxs-envelope text-sky-400 mr-3'></i>
+                           <a href="mailto:devnexus.contact@gmail.com" class="hover:text-sky-400 transition-colors">devnexus.contact@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                           <i class='bx bxs-phone text-sky-400 mr-3'></i>
+                           <a href="tel:+94761536494" class="hover:text-sky-400 transition-colors">+94 76 153 6494</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 DevNexus. All rights reserved. | <a href="#" class="hover:text-sky-400">Privacy Policy</a> | <a href="#" class="hover:text-sky-400">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- AOS Animation JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
 
-        // Animated Counter
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const counter = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(counter);
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
                 } else {
-                    element.textContent = Math.floor(start);
-                }
-            }, 16);
-        }
-
-        // Intersection Observer for counters
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const element = entry.target;
-                    const target = parseInt(element.getAttribute('data-target'));
-                    animateCounter(element, target, 2000);
-                    observer.unobserve(element);
+                    menuIcon.classList.remove('bx-menu');
+                    menuIcon.classList.add('bx-x');
                 }
             });
-        }, observerOptions);
+            
+            // Close mobile menu when a link is clicked
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
+                });
+            });
 
-        // Observe all stat numbers
-        document.querySelectorAll('.stat-number').forEach(stat => {
-            observer.observe(stat);
-        });
+            // Scroll reveal animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            revealElements.forEach(el => observer.observe(el));
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 70;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+            // Active nav link highlighting on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
             });
         });
-
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(26, 26, 26, 0.98)';
-            } else {
-                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-            }
-        });
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const name = this.querySelector('input[type="text"]').value.trim();
-            const email = this.querySelector('input[type="email"]').value.trim();
-            const message = this.querySelector('textarea').value.trim();
-            
-            // Simple validation
-            if (name && email && message) {
-                const phoneNumber = "94787556494"; // WhatsApp number
-                const text = `Hi, I'm ${name},\n\n${message}\n\nEmail: ${email}`;
-                const encodedText = encodeURIComponent(text);
-
-                // Open WhatsApp
-                window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank");
-
-                this.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-        // Project card animations on scroll
-        const projectCards = document.querySelectorAll('.project-card');
-        const projectObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.animation = `slideInRight 0.8s ease-out forwards`;
-                    }, index * 200);
-                    projectObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        projectCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateX(100px)';
-            projectObserver.observe(card);
-        });
-
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Service card hover effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add typing effect to hero title
-        function typeWriter(element, text, speed) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing effect after page load
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                const heroTitle = document.querySelector('.hero-title');
-                const originalText = heroTitle.textContent;
-                typeWriter(heroTitle, originalText, 100);
-            }, 1000);
-        });
-
-        // Add glow effect to buttons on hover
-        document.querySelectorAll('.btn-custom').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 0 30px rgba(0, 255, 136, 0.5)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Mobile menu improvements
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 992) {
-                    navbarCollapse.classList.remove('show');
-                }
-            });
-        });
-
-        // Add scroll indicator
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            
-            // Create progress bar if it doesn't exist
-            let progressBar = document.querySelector('.scroll-progress');
-            if (!progressBar) {
-                progressBar = document.createElement('div');
-                progressBar.className = 'scroll-progress';
-                progressBar.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 0%;
-                    height: 3px;
-                    background: linear-gradient(90deg, var(--accent-green), var(--dark-green));
-                    z-index: 9999;
-                    transition: width 0.1s ease;
-                `;
-                document.body.appendChild(progressBar);
-            }
-            
-            progressBar.style.width = scrollPercent + '%';
-        });
-
-
-        // disapear part 
-
-        document.addEventListener("DOMContentLoaded", function () {
-        const hero = document.querySelector(".hero-section-content");
-        const stats = document.querySelector(".stats-section");
-
-        const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            // When stats section appears, hide hero
-            hero.classList.add("hero-hidden");
-            } else {
-            // When stats section goes out of view, show hero again
-            hero.classList.remove("hero-hidden");
-            }
-        });
-        }, { threshold: 0.3 }); // trigger when 30% of stats is visible
-
-        observer.observe(stats);
-    });
     </script>
+    <script>
+  const industries = [
+    "business",
+    "restaurant",
+    "travel agency",
+    "mobile shop",
+    "fashion store",
+    "online store",
+    "portfolio"
+  ];
+
+  let index = 0;
+  const rotatingText = document.getElementById("rotating-text");
+
+  function changeIndustry() {
+    // Fade out
+    rotatingText.classList.remove("fade-in");
+    rotatingText.classList.add("fade-out");
+
+    setTimeout(() => {
+      // Change text after fade-out
+      rotatingText.textContent =
+        industries[index][0].toUpperCase() + industries[index].slice(1);
+
+      // Fade back in
+      rotatingText.classList.remove("fade-out");
+      rotatingText.classList.add("fade-in");
+
+      index = (index + 1) % industries.length;
+    }, 500); // match CSS transition duration
+  }
+
+  // Initialize
+  changeIndustry();
+  setInterval(changeIndustry, 2000);
+</script>
 </body>
 </html>
