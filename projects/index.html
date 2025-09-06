@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - DevNexus</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        /* Applying the Poppins font family */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117; /* A deep navy, almost black */
+            color: #c9d1d9; /* Light grey for text */
+        }
+        
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Nav link active state for the current page */
+        .nav-link-projects-active {
+            color: #38bdf8; /* sky-400 */
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Ensure masonry items don't break across columns */
+        .masonry-item {
+            break-inside: avoid;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold gradient-text">DevNexus</a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="../index.html#home" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Home</a>
+                <a href="../index.html#about" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">About</a>
+                <a href="../index.html#services" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Services</a>
+                <a href="projects.html" class="nav-link-projects-active font-semibold">Projects</a>
+                <a href="../index.html#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300">Contact</a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <i class='bx bx-menu text-3xl'></i>
+            </button>
+        </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="../index.html#home" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="../index.html#about" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">About</a>
+            <a href="../index.html#services" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Services</a>
+            <a href="projects.html" class="block py-3 px-6 text-sky-400 bg-gray-800">Projects</a>
+            <a href="../index.html#contact" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-32">
+        <section class="text-center container mx-auto px-6 pb-16">
+            <p class="text-sky-400 font-semibold reveal">Recently completed</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mt-2 reveal" style="transition-delay: 150ms;"><span class="gradient-text">PROJECTS</span></h1>
+        </section>
+
+        <section class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-8 reveal border-l-4 border-sky-500 pl-4">Web Design</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal">
+                        <img src="../p1.png" alt="Salon Website" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Salon website</h3>
+                            <p class="text-gray-400 text-sm">A modern salon website with an elegant design, showcasing services, pricing, and booking options to give customers a smooth and professional online experience.</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal" style="transition-delay: 100ms;">
+                        <img src="../p2.png" alt="IT Company Website" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">IT Company</h3>
+                            <p class="text-gray-400 text-sm">A professional cybersecurity company website designed to highlight services, showcase expertise, and build trust with clients through a clean and modern user experience.</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal" style="transition-delay: 200ms;">
+                        <img src="../p3.png" alt="Hostel Booking Platform" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Hostel Booking Platform</h3>
+                            <p class="text-gray-400 text-sm">A professional hostel booking website designed to showcase rooms, highlight facilities, and provide guests with a smooth and convenient online experience.</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal">
+                        <img src="../p4.png" alt="E-commerce Platform" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">E-commerce Platform</h3>
+                            <p class="text-gray-400 text-sm">Modern online store with advanced features and seamless user experience.</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal" style="transition-delay: 100ms;">
+                        <img src="../p5.png" alt="Video Downloader" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Video Downloader</h3>
+                            <p class="text-gray-400 text-sm">A fast, ad-free downloader for YouTube, Facebook, and Instagram with built-in light/dark mode.</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden group reveal" style="transition-delay: 200ms;">
+                        <img src="../p7.png" alt="Personal Portfolio" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Personal Portfolio</h3>
+                            <p class="text-gray-400 text-sm">A modern portfolio to showcase skills, projects, and achievements with professional design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-8 reveal border-l-4 border-sky-500 pl-4">Post Design</h2>
+                <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 reveal">
+                    <div class="masonry-item"><img class="rounded-lg" src="../post1.png" alt="Post design example 1"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="../post2.png" alt="Post design example 2"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="../post3.png" alt="Post design example 3"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="../post4.png" alt="Post design example 4"></div>
+                    <!-- <div class="masonry-item"><img class="rounded-lg" src="../pos" alt="Post design example 5"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="https://source.unsplash.com/random/500x850/?technology,poster" alt="Post design example 6"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="https://source.unsplash.com/random/500x650/?poster,art" alt="Post design example 7"></div>
+                    <div class="masonry-item"><img class="rounded-lg" src="https://source.unsplash.com/random/500x720/?creative,design" alt="Post design example 8"></div> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 pb-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-8 reveal border-l-4 border-sky-500 pl-4">Social Media Marketing</h2>
+                <div class="bg-gray-900/50 border border-gray-700 p-8 rounded-xl reveal">
+                    <p class="text-gray-400 text-center">Our social media campaigns are tailored to build brand awareness, drive engagement, and generate leads. We create compelling content and data-driven strategies to connect with your target audience across various platforms. Contact us to see our portfolio of successful campaigns.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-gray-900 border-t border-gray-700 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold gradient-text mb-4">About Devnexus</h3>
+                    <p class="text-gray-400">We are a leading digital agency specializing in web design, post design, and social media marketing. Our mission is to help businesses grow through innovative digital solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-sky-400 transition-colors">Web Design</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-sky-400 transition-colors">Post Design</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-sky-400 transition-colors">Social Media Marketing</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-sky-400 transition-colors">SEO Optimization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-sky-400 transition-colors">Brand Development</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-sky-400 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-sky-400 transition-colors">About</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-sky-400 transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-sky-400 transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-sky-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                           <i class='bx bxs-map text-sky-400 mt-1 mr-3'></i>
+                           <span>Devnexus, Dolahena Govijanapadaya Road, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center">
+                           <i class='bx bxs-envelope text-sky-400 mr-3'></i>
+                           <a href="mailto:devnexus.contact@gmail.com" class="hover:text-sky-400 transition-colors">devnexus.contact@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                           <i class='bx bxs-phone text-sky-400 mr-3'></i>
+                           <a href="tel:+94761536494" class="hover:text-sky-400 transition-colors">+94 76 153 6494</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Devnexus. All rights reserved. | <a href="#" class="hover:text-sky-400">Privacy Policy</a> | <a href="#" class="hover:text-sky-400">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
+                } else {
+                    menuIcon.classList.remove('bx-menu');
+                    menuIcon.classList.add('bx-x');
+                }
+            });
+            
+            // Close mobile menu when a link is clicked
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
+                });
+            });
+
+            // Scroll reveal animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
