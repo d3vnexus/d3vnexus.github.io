@@ -89,6 +89,9 @@
           display: none;
           visibility: hidden;
         }
+        nav{
+            max-height: 70px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -96,7 +99,7 @@
     <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
         <nav class="container mx-auto px-6 h-16 flex justify-between items-center">
 
-            <img src="logo.png" alt="DevNexus Logo" class="h-12 w-auto object-contain">
+            <img src="logo.png" alt="DevNexus Logo" class="w-auto object-contain" style="height: 80px;">
 
             <!-- <a href="#" class="text-2xl font-bold gradient-text">DevNexus</a> -->
             
@@ -128,8 +131,8 @@
     style="background-image: url(hero.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="absolute inset-0 bg-grid-gray-700/20 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
             <div class="container mx-auto px-6 text-center relative">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal">Bring your business into the <span class="gradient-text">digital world</span></h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 200ms;">Unlock the Digital Future of Your <span id="rotating-text" style="color: yellow;font-weight: 900;"></span></p>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal hero-title">Bring your business into the <span class="gradient-text">digital world</span></h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 reveal text-center" style="transition-delay: 200ms;">Unlock the Digital Future of Your business</p>
                 <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block reveal" style="transition-delay: 400ms;">Get In Touch</a>
             </div>
         </section>
@@ -140,15 +143,15 @@
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="p-6 reveal">
-                        <h3 class="text-4xl font-bold gradient-text">20+</h3>
+                        <h3 class="text-4xl font-bold gradient-text counter" data-target="170" >0</h3>
                         <p class="text-gray-400 mt-2">Projects Completed</p>
                     </div>
                     <div class="p-6 reveal" style="transition-delay: 200ms;">
-                        <h3 class="text-4xl font-bold gradient-text">15+</h3>
+                        <h3 class="text-4xl font-bold gradient-text counter" data-target="100" >0</h3>
                         <p class="text-gray-400 mt-2">Happy Customers</p>
                     </div>
                     <div class="p-6 reveal" style="transition-delay: 400ms;">
-                        <h3 class="text-4xl font-bold gradient-text">4+</h3>
+                        <h3 class="text-4xl font-bold gradient-text counter" data-target="4" >0</h3>
                         <p class="text-gray-400 mt-2">Years of Experience</p>
                     </div>
                 </div>
@@ -283,7 +286,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-12 reveal">
-                  <a href="projects/" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block">See More</a>
+                  <a href="projects/index.html" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 inline-block">See More</a>
                 </div>
             </div>
         </section>
@@ -417,41 +420,59 @@
         });
     </script>
     <script>
-  const industries = [
-    "business",
-    "restaurant",
-    "travel agency",
-    "mobile shop",
-    "fashion store",
-    "online store",
-    "portfolio"
-  ];
+  // Add typing effect to hero title
+        function typeWriter(element, text, speed) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
 
-  let index = 0;
-  const rotatingText = document.getElementById("rotating-text");
+        // Initialize typing effect after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero-title');
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 100);
+            }, 1000);
+        });
 
-  function changeIndustry() {
-    // Fade out
-    rotatingText.classList.remove("fade-in");
-    rotatingText.classList.add("fade-out");
 
-    setTimeout(() => {
-      // Change text after fade-out
-      rotatingText.textContent =
-        industries[index][0].toUpperCase() + industries[index].slice(1);
 
-      // Fade back in
-      rotatingText.classList.remove("fade-out");
-      rotatingText.classList.add("fade-in");
+        //count function
+        function count(el) {
+        let target = parseInt(el.getAttribute("data-target"));
+        let cnum = 0;
+        const upcount = setInterval(function () {
+            cnum++;
+            el.textContent = cnum + "+";
+            if (cnum >= target) {
+            clearInterval(upcount);
+            }
+        }, 10); // adjust speed
+        }
 
-      index = (index + 1) % industries.length;
-    }, 500); // match CSS transition duration
-  }
+        // Observe all counters
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            count(entry.target);
+            observer.unobserve(entry.target); // run once per element
+            }
+        });
+        });
 
-  // Initialize
-  changeIndustry();
-  setInterval(changeIndustry, 2000);
+        document.querySelectorAll(".counter").forEach((el) => {
+        observer.observe(el);
+        });
 </script>
 </body>
 </html>
-
